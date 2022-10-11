@@ -1,0 +1,7 @@
+#导入nacos配置中心，测试配置
+server:
+  port: 8191
+
+gateway:
+  name: lizy-test
+  pwd: testgateway-test

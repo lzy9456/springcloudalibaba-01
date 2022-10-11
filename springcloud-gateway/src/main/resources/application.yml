@@ -1,0 +1,50 @@
+#server:
+#  port: 8190
+
+spring:
+  application:
+    name: springcloud-gateway
+  # 处理 FeignClient 重名问题
+  #  main:
+  #    allow-bean-definition-overriding: true
+  cloud:
+    # nacos.discovery注册服务发现
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: nacos.com:8848
+    # sentinel
+    sentinel:
+      eager: true
+      transport:
+        dashboard: localhost:8858
+    # gateway
+    gateway:
+      # 跨域CORS
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      # 开启由注册中心提供地址路由
+      discovery:
+        locator:
+          enabled: true
+      # 具体路由配置，代理路由url，filter等
+      routes:
+        - id: order_route
+          #          uri: http://localhost:8081
+          uri: lb://fegin-order-service
+          predicates:
+            - Path=/order/**,/order*/**
+
+        - id: stock_route
+          #          uri: http://localhost:8081
+          uri: lb://fegin-stock-service
+          predicates:
+            - Path=/stock/**
+
+
+

@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+
+spring:
+  application:
+    name: fegin-order-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include=*

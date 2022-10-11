@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // Ctrl+alt+F12打开此文件文件夹，双击html文件以文件路径打开，F12查看console。
+        // 注释跨域配置部分，ajax访问接口报错：...CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource
+        // eg：file:///D:/work/workspace.test/springcloudalibaba-01/springcloud-gateway/src/main/resources/static/cors-test.html
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://127.0.0.1:8190/order-fegin-nacos/1');
+        // var token = "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleV86IjoiMGY4YTlmYzgtODZmMi00NjM3LWFlNGUtYTdmYTQyMzIzMmYwIn0.9NR3VRvgOg2USyCMyUaBEpZKETj3tn9eIdnQo7vXQH_0hwqWOKAkSxCYNtYOnPoRLEOaJQTVdq22grvvqYU4Fw";
+        // xhr.setRequestHeader("x-access-token", token);
+        xhr.send(null);
+        xhr.onload = function (e) {
+            var xhr = e.target;
+            console.log(xhr.responseText);
+        }
+    </script>
+</head>
+<body>
+F12查看console log
+</body>
+</html>

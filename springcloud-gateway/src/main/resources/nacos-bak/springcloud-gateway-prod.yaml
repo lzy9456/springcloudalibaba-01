@@ -1,0 +1,7 @@
+#导入nacos配置中心，生产配置
+server:
+  port: 8192
+
+gateway:
+  name: lizy-prod
+  pwd: testgateway-prod
